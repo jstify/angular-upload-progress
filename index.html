@@ -1,0 +1,58 @@
+<html ng-app="ngUploadProgress">
+	<head>
+        <style>
+            body {
+                width: 100%;
+                height: 100%;
+            }
+            .body-inner {
+                width: 320px;
+                height: 100%;
+                margin: auto auto;
+            }
+
+            .pgrss-container {
+                margin-top: 10px;
+                width: 100%;
+                height: 20px;
+                border: 1px solid #333;
+            }
+            .pgrss-bar {
+                height: 100%;
+                background-color: green;
+                width: 0%;
+            }
+
+        </style>
+	</head>
+	<body ng-controller="appController">
+        <div class="body-inner">
+            <h1>{{caption1}}</h1>
+
+            <input type="file" id="file_upload_field" onChange="angular.element(this).scope().onInputChange(this);" accept="image/*" multiple/>
+
+            <button ng-show="!inProgress" ng-click="uploadPhotosToServer()">Upload</button>
+            <div class="pgrss-container" ng-show="inProgress">
+                <div class="pgrss-bar" style="width:{{upLoadPercent}}%"></div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1>{{caption2}}</h1>
+
+            <input type="file" id="file_upload_field2" onChange="angular.element(this).scope().onInputChange2(this);" accept="image/*" multiple/>
+
+            <button ng-show="!inProgress2" ng-click="uploadPhotosToServer2()">Upload</button>
+            <div class="pgrss-container" ng-show="inProgress2">
+                <div class="pgrss-bar" style="width:{{upLoadPercent2}}%"></div>
+            </div>
+        </div>
+		<script src="dist/bundle.js"></script>
+	</body>
+</html>
